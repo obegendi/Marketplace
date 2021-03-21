@@ -1,0 +1,10 @@
+﻿[*.cs]
+
+# Default severity for all analyzer diagnostics
+#dotnet_analyzer_diagnostic.severity = none
+
+# CA2007: Consider calling ConfigureAwait on the awaited task
+dotnet_diagnostic.CA2007.severity = none
+
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = none
