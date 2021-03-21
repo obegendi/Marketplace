@@ -18,20 +18,7 @@ namespace Marketplace.Data
         public IMongoDatabase _db;
 
         public MongoDbContext(IOptions<Appsettings> options)
-        {
-            //var internalIdentity = new MongoInternalIdentity("admin", options.Value.MongoDbOptions.Username);
-            //var passwordEvidence = new PasswordEvidence(options.Value.MongoDbOptions.Password);
-            //var mongoCredential = new MongoCredential(options.Value.MongoDbOptions.AuthMechanism, internalIdentity, passwordEvidence);
-
-            //var settings = new MongoClientSettings
-            //{
-            //    AllowInsecureTls = true,
-            //    ApplicationName = "Marketplace",
-            //    GuidRepresentation = MongoDB.Bson.GuidRepresentation.Standard,
-            //    ConnectionMode = ConnectionMode.Automatic,
-            //    Server = new MongoServerAddress(options.Value.MongoDbOptions.ConnectionString, options.Value.MongoDbOptions.Port),
-            //    Credential = mongoCredential
-            //};
+        {           
 
             if (_client == null)
                 _client = new MongoClient(options.Value.MongoDbOptions.DbConnectionString);
@@ -43,15 +30,7 @@ namespace Marketplace.Data
 
             if (!(Products.Indexes.List().ToList().Count > 1))
             {
-                //Products.Indexes.CreateMany(new List<CreateIndexModel<Product>>()
-                //{ 
-                //    new CreateIndexModel<Product>(Builders<Product>.IndexKeys.Text(x => x.Barcode)),
-                //    new CreateIndexModel<Product>(Builders<Product>.IndexKeys.Text(x => x.Tags)),
-                //    new CreateIndexModel<Product>(Builders<Product>.IndexKeys.Text(x => x.Name)),
-                //    new CreateIndexModel<Product>(Builders<Product>.IndexKeys.Text(x => x.Sku))
-                //});
-
-                //Products.Indexes.CreateOne(new BsonDocument { { "Name", 1 }, { "Barcode", 1 }, { "Sku", 1 } });
+        
             }
         }
 
